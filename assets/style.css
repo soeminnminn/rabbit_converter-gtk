@@ -1,0 +1,9 @@
+#txtUnicode {
+    font-family: "Myanmar Text", Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+}
+
+#txtZawgyi {
+    font-family: "Zawgyi-One";
+    font-size: 12pt;
+}

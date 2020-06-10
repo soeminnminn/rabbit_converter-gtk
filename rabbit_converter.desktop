@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Rabbit converter
+Comment=Myanmar unicode and Zawgyi-One font converter.
+Exec=rabbit_converter
+Icon=/usr/share/rabbitconverter/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Utility;

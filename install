@@ -1,0 +1,59 @@
+#!/bin/bash
+
+if [[ $EUID -eq 0 ]]; then 
+   echo "This script can't be run as root" 
+   exit 1
+fi
+
+########################################################################
+echo "Create application folder"
+
+APP_DIR=$HOME/.local/share/rabbit_converter
+
+mkdir $APP_DIR
+
+cp ./rabbit_converter $APP_DIR/
+
+cp -R ./assets/ $APP_DIR/
+
+########################################################################
+echo "Install fonts."
+
+FONT_DIR=$HOME/.local/share/fonts
+
+if [ ! -d "$FONT_DIR" ]; then
+   mkdir $FONT_DIR
+fi
+
+if [ ! -f "$FONT_DIR/mmrtext.ttf" ]; then
+   cp ./assets/fonts/mmrtext.ttf $FONT_DIR/
+fi
+
+if [ ! -f "$FONT_DIR/mmrtextb.ttf" ]; then
+   cp ./assets/fonts/mmrtextb.ttf $FONT_DIR/
+fi
+
+if [ ! -f "$FONT_DIR/zawgyi.ttf" ]; then
+   cp ./assets/fonts/zawgyi.ttf $FONT_DIR/
+fi
+
+########################################################################
+echo "Create Desktop Entry"
+
+if [ ! -d "$HOME/.local/bin" ]; then
+   mkdir $HOME/.local/bin
+fi
+
+ln -s $APP_DIR/rabbit_converter $HOME/.local/bin/
+
+echo -e $"[Desktop Entry]\n"\
+"Version=1.0\n"\
+"Name=Rabbit converter\n"\
+"Comment=Myanmar unicode and Zawgyi-One font converter.\n"\
+"Exec=rabbit_converter\n"\
+"Icon=$HOME/.local/share/rabbit_converter/assets/icon.svg\n"\
+"Terminal=false\n"\
+"Type=Application\n"\
+"Categories=Utility;" >> $HOME/.local/share/applications/rabbit_converter.desktop
+
+########################################################################
