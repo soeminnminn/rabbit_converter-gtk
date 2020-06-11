@@ -1,4 +1,4 @@
-rabbit converter (1.0) trusty; urgency=medium 
+rabbit converter (1.0.0) focal; urgency=medium 
 
   * Initial
   * Font converter

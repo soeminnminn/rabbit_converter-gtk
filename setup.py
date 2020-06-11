@@ -10,7 +10,7 @@ setuptools.setup(
       name = "rabbitconverter",
       packages = setuptools.find_packages(),
       scripts=['rabbit_converter'],
-      version = "1.0",
+      version = "1.0.0",
       description = "Myanmar unicode and Zawgyi-One font converter.",
       long_description = long_description,
       long_description_content_type = "text/markdown",
